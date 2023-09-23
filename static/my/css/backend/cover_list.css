@@ -1,0 +1,48 @@
+.avatar_list {
+  flex-wrap: wrap;
+  list-style: none;
+}
+.avatar_list > li {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.avatar_list > li img {
+  height: 70px;
+  display: block;
+  border: 1px solid #ff9800;
+}
+.avatar_list > li .delete_icon {
+  display: none;
+  height: 30px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+.avatar_list > li .delete_icon i {
+  color: white;
+}
+.avatar_list > li.no_use_cover {
+  opacity: 0.6;
+}
+.avatar_list > li.no_use_cover .delete_icon {
+  display: flex;
+  transition: all 0.3s;
+  opacity: 0;
+}
+.avatar_list > li.no_use_cover:hover .delete_icon {
+  opacity: 1;
+}
+.avatar_list > li.no_use_cover > img {
+  border: none;
+}
+
+.el-scrollbar__wrap {
+  overflow-x: hidden !important;
+}
+
+/*# sourceMappingURL=cover_list.css.map */

@@ -1,0 +1,35 @@
+{% extends 'backend/backend.html' %}
+{% load static %}
+{% load my_filter %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'my/css/backend/cover_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <el-scrollbar style="margin-top: 20px; margin-bottom: 10px">
+        <ul class="avatar_list flex">
+            {% for cover in cover_query %}
+                <li class="{{ cover|to_calculate_cover }}">
+                    <div class="delete_icon flex center item_center">
+                        <i @click="cover_list_delete('{{ cover.nid }}', $event)" class="el-icon-delete-solid"></i>
+                    </div>
+                    <img src="{{ cover.url.url }}" alt="">
+                </li>
+            {% endfor %}
+        </ul>
+    </el-scrollbar>
+    {#    上传头像#}
+    <el-upload
+            class="upload-demo"
+            action="/api/upload/cover/"
+            multiple
+            :on-success="cover_list_success"
+            {#            上传头像时候有csrf验证，方法已写好，只是现在测试没开csrf，所以暂时注掉下面两个#}
+            {#            :before-upload="avatar_list_upload"#}
+            {#            :headers="avatar_list_headers"#}
+            list-type="picture">
+        <el-button size="small" type="primary">上传封面</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png/jpeg文件，且不超过2MB</div>
+    </el-upload>
+{% endblock %}
+

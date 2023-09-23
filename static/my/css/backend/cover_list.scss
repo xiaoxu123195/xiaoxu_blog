@@ -1,0 +1,56 @@
+.avatar_list {
+  flex-wrap: wrap;
+  list-style: none;
+
+  > li {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+      height: 70px;
+      display: block;
+      border: 1px solid #ff9800;
+    }
+
+    .delete_icon {
+      display: none;
+      height: 30px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+
+      i {
+        color: white;
+      }
+    }
+  }
+
+  > li.no_use_cover {
+    opacity: 0.6;
+
+    .delete_icon {
+      display: flex;
+      transition: all 0.3s;
+      opacity: 0;
+    }
+
+    &:hover {
+      .delete_icon {
+        opacity: 1;
+      }
+    }
+
+    > img {
+      border: none;
+    }
+  }
+}
+
+.el-scrollbar__wrap {
+  overflow-x: hidden !important;
+}

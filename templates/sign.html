@@ -1,0 +1,109 @@
+{% extends 'login.html' %}
+{% load static %}
+{% block title %}
+    <title>越界e|用户注册</title>
+{% endblock %}
+
+{% block contenter %}
+    <div class="container sign-up-mode">
+                <div class="forms-container">
+                    <div class="signin-signup"><input type="hidden">
+                        {% csrf_token %}
+                        {#登录#}
+                        <form action="#" class="sign-in-form">
+                            <h2 class="title">登录</h2>
+                            <div class="input-field">
+                                <i class="el-icon-user-solid"></i>
+                                <input ref="login_form_name" v-model="login_form.name" type="text" placeholder="用户名">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-lock"></i>
+                                <input ref="login_form_pwd" v-model="login_form.pwd" type="password" placeholder="密码">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-key"></i>
+                                <input ref="login_form_code" v-model="login_form.code" type="text" placeholder="验证码">
+                            </div>
+                            <div class="code">
+                                <img @click="get_random_code" src="{% static 'my/img/login/code.png'%}" alt="">
+                            </div>
+                            <input @click="login" type="submit" value="立即登录" class="btn solid">
+                            <p class="social-text">通过其他方式</p>
+                            <div class="social-media">
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/qq_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/wexin_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/weibo_icon.svg' %}" alt="">
+                                </a>
+                            </div>
+                        </form>
+                        {#注册#}
+                        <form action="#" class="sign-up-form">
+                            <h2 class="title">注册</h2>
+                            <div class="input-field">
+                                <i class="el-icon-user-solid"></i>
+                                <input ref="sign_form_name" v-model="sign_form.name" type="text" placeholder="用户名">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-lock"></i>
+                                <input ref="sign_form_pwd" v-model="sign_form.pwd" type="password" placeholder="密码">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-lock"></i>
+                                <input ref="sign_form_re_pwd" v-model="sign_form.re_pwd" type="password"
+                                       placeholder="确认密码">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-key"></i>
+                                <input ref="sign_form_code" v-model="sign_form.code" type="text" placeholder="验证码">
+                            </div>
+                            <div class="code">
+                                <img @click="get_random_code" src="{% static 'my/img/login/code.png'%}" alt="">
+                            </div>
+                            <input @click="sign" type="submit" value="立即注册" class="btn">
+                            <p class="social-text">通过其他方式</p>
+                            <div class="social-media">
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/qq_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/wexin_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/weibo_icon.svg' %}" alt="">
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="panels-container">
+                    <div class="panel left-panel">
+                        <div class="content">
+                            <h3>加入我们</h3>
+                            <p>
+                                加入我们，成为本站的一份子。
+                            </p>
+                            <button id="sign-up-btn" class="btn transparent">
+                                去注册
+                            </button>
+                        </div>
+                        <img src="{% static 'my/img/login/log.svg' %}" alt="" class="image">
+                    </div>
+                    <div class="panel right-panel">
+                        <div class="content"><h3>已有帐号？</h3>
+                            <p>
+                                立即登录已有帐号，享受精彩内容。
+                            </p>
+                            <button id="sign-in-btn" class="btn transparent">
+                                去登录
+                            </button>
+                        </div>
+                        <img src="{% static 'my/img/login/register.svg' %}" alt="" class="image">
+                    </div>
+                </div>
+            </div>
+{% endblock %}

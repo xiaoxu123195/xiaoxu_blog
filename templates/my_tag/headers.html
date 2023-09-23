@@ -1,0 +1,12 @@
+<header>
+{#    <div class="title">#}
+{#        <h1>海绵宝宝</h1>#}
+{#        <p>关于海绵宝宝，更快更强！</p>#}
+{#    </div>#}
+    {% for img in img_list %}
+        <div id="banner_box" class="dynamic_shuffle" banner_time="{{ menu_time }}">
+            <img src="{{ img }}" alt="">
+        </div>
+    {% endfor %}
+
+</header>

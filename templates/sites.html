@@ -1,0 +1,154 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load my_tag my_filter %}
+{% block css %}
+    <link rel="stylesheet" href="{% static '/my/css/sites.css' %}">
+{% endblock %}
+{% block banner %}
+    {% banner 'sites' %}
+{% endblock %}
+{% block main %}
+    <div class="main">
+        <div class="actions">
+            <div class="tag_item">推荐</div>
+            <div class="tag_item">教程</div>
+            <div class="tag_item">项目源码</div>
+            <div class="tag_item">Java</div>
+            <div class="tag_item">算法</div>
+            <div class="tag_item">前端</div>
+        </div>
+        <div class="now_action">
+            <h2>推荐</h2>
+        </div>
+        <div class="site_list">
+            <li>
+                <div class="top">
+                    <div class="content">
+                        <a class="cover cursor">
+                            <img src="https://element.faas.ele.me/favicon.ico" alt="">
+                        </a>
+                        <div class="right">
+                            <a class="title cursor">element UI</a>
+                            <div class="abstract">一款基于vue的UI框架</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>项目源码</span>
+                        <span>教程</span>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="item">
+                        <i class="fa fa-heart cursor"></i>
+                        <span>23</span>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-star cursor"></i>
+                    </div>
+                    <div class="item">
+                        <a href="" class="cursor">
+                            <i class="fa fa-location-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="top">
+                    <div class="content">
+                        <a class="cover cursor">
+                            <img src="https://element.faas.ele.me/favicon.ico" alt="">
+                        </a>
+                        <div class="right">
+                            <a class="title cursor">element UI</a>
+                            <div class="abstract">一款基于vue的UI框架</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>项目源码</span>
+                        <span>教程</span>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="item">
+                        <i class="fa fa-heart cursor"></i>
+                        <span>23</span>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-star cursor"></i>
+                    </div>
+                    <div class="item">
+                        <a href="" class="cursor">
+                            <i class="fa fa-location-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="top">
+                    <div class="content">
+                        <a class="cover cursor">
+                            <img src="https://element.faas.ele.me/favicon.ico" alt="">
+                        </a>
+                        <div class="right">
+                            <a class="title cursor">element UI</a>
+                            <div class="abstract">一款基于vue的UI框架</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>项目源码</span>
+                        <span>教程</span>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="item">
+                        <i class="fa fa-heart cursor"></i>
+                        <span>23</span>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-star cursor"></i>
+                    </div>
+                    <div class="item">
+                        <a href="" class="cursor">
+                            <i class="fa fa-location-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="top">
+                    <div class="content">
+                        <a class="cover cursor">
+                            <img src="https://element.faas.ele.me/favicon.ico" alt="">
+                        </a>
+                        <div class="right">
+                            <a class="title cursor">element UI</a>
+                            <div class="abstract">一款基于vue的UI框架</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>项目源码</span>
+                        <span>教程</span>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="item">
+                        <i class="fa fa-heart cursor"></i>
+                        <span>23</span>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-star cursor"></i>
+                    </div>
+                    <div class="item">
+                        <a href="" class="cursor">
+                            <i class="fa fa-location-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,208 @@
+#app {
+  display: flex;
+}
+
+aside {
+  width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #304156;
+}
+aside .slogan {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+aside .slogan img {
+  width: 80%;
+}
+aside > #dynamic_menu {
+  width: 100%;
+  margin-top: 40px;
+}
+aside > #dynamic_menu > a {
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  color: white;
+}
+aside > #dynamic_menu > a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+aside > #dynamic_menu > a.active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+main {
+  padding: 20px;
+  box-sizing: border-box;
+  width: calc(100% - 200px);
+  height: 100vh;
+  overflow-x: auto;
+  background-color: #f0eeee;
+}
+main .user_info {
+  width: 100%;
+  display: flex;
+  border-radius: 5px;
+  background-color: white;
+}
+main .user_info .left {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .user_info .left img {
+  width: 80px;
+  border-radius: 50%;
+}
+main .user_info .right {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+main .user_info .right .item {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+main .actions {
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+main .edit_info > div {
+  margin-bottom: 10px;
+}
+main .edit_info > div label {
+  display: block;
+  margin-bottom: 5px;
+}
+main .collection_article_all {
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #f0eeee;
+}
+main .collection_article_all > p {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+main .collection_article_all .article_list {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+main .collection_article_all .article_list .item {
+  box-sizing: border-box;
+  width: 33.33%;
+  display: flex;
+  padding: 20px;
+}
+main .collection_article_all .article_list .item .left {
+  width: 30%;
+}
+main .collection_article_all .article_list .item .left img {
+  width: 100%;
+}
+main .collection_article_all .article_list .item .right {
+  box-sizing: border-box;
+  width: 70%;
+  padding-left: 10px;
+}
+main .collection_article_all .article_list .item .right p {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.collection_table {
+  width: 100%;
+  border-spacing: 1px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #a0b1c5;
+}
+.collection_table thead tr {
+  color: #333;
+  font-weight: 600;
+  height: 50px;
+  background-color: white;
+}
+.collection_table tbody tr {
+  height: 40px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+.collection_table tbody tr td {
+  text-align: center;
+}
+.collection_table tbody tr td a {
+  color: #304156;
+}
+.collection_table tbody tr .select input {
+  cursor: pointer;
+}
+.collection_table tbody tr .tags i {
+  margin-right: 5px;
+  padding: 0 5px;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+.collection_table tbody tr .tags i:nth-child(4n) {
+  background-color: #ff9800;
+}
+.collection_table tbody tr .tags i:nth-child(4n+1) {
+  background-color: #dd6161;
+}
+.collection_table tbody tr .tags i:nth-child(4n+2) {
+  background-color: #26c6da;
+}
+.collection_table tbody tr .tags i:nth-child(4n+3) {
+  background-color: #3a8ee6;
+}
+.collection_table tbody tr .tags i:last-child {
+  margin-right: 0;
+}
+.collection_table tbody tr:nth-of-type(odd) {
+  background-color: #f6f7fa;
+}
+.collection_table tbody tr:nth-of-type(odd):hover {
+  background-color: #e3e6ee;
+}
+.collection_table tbody tr:nth-of-type(even) {
+  background-color: #fff;
+}
+.collection_table tbody tr:nth-of-type(even):hover {
+  background-color: #eceff5;
+}
+
+.cancel_btn {
+  margin-top: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #f0eeee;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  background-color: #666d83;
+}
+
+/*# sourceMappingURL=backend_base.css.map */

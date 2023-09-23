@@ -1,0 +1,219 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    {% block title %}
+        <title>越界e|用户登录</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'my/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'my/css/login.css' %}">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="{% static 'elementui/theme-chalk/index.css'%}">
+
+</head>
+<body>
+<div id="app">
+    <main>
+        {% block contenter %}
+            <div class="container">
+                <div class="forms-container">
+                    <div class="signin-signup"><input type="hidden">
+                        {% csrf_token %}
+                        {#登录#}
+                        <form action="#" class="sign-in-form">
+                            <h2 class="title">登录</h2>
+                            <div class="input-field">
+                                <i class="el-icon-user-solid"></i>
+                                <input ref="login_form_name" v-model="login_form.name" type="text" placeholder="用户名">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-lock"></i>
+                                <input ref="login_form_pwd" v-model="login_form.pwd" type="password" placeholder="密码">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-key"></i>
+                                <input ref="login_form_code" v-model="login_form.code" type="text" placeholder="验证码">
+                            </div>
+                            <div class="code">
+                                <img @click="get_random_code" src="{% static 'my/img/login/code.png'%}" alt="">
+                            </div>
+                            <input @click="login" type="submit" value="立即登录" class="btn solid">
+                            <p class="social-text">通过其他方式</p>
+                            <div class="social-media">
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/qq_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/wexin_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/weibo_icon.svg' %}" alt="">
+                                </a>
+                            </div>
+                        </form>
+                        {#注册#}
+                        <form action="#" class="sign-up-form">
+                            <h2 class="title">注册</h2>
+                            <div class="input-field">
+                                <i class="el-icon-user-solid"></i>
+                                <input ref="sign_form_name" v-model="sign_form.name" type="text" placeholder="用户名">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-lock"></i>
+                                <input ref="sign_form_pwd" v-model="sign_form.pwd" type="password" placeholder="密码">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-lock"></i>
+                                <input ref="sign_form_re_pwd" v-model="sign_form.re_pwd" type="password"
+                                       placeholder="确认密码">
+                            </div>
+                            <div class="input-field">
+                                <i class="el-icon-key"></i>
+                                <input ref="sign_form_code" v-model="sign_form.code" type="text" placeholder="验证码">
+                            </div>
+                            <div class="code">
+                                <img @click="get_random_code" src="{% static 'my/img/login/code.png'%}" alt="">
+                            </div>
+                            <input @click="sign" type="submit" value="立即注册" class="btn">
+                            <p class="social-text">通过其他方式</p>
+                            <div class="social-media">
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/qq_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/wexin_icon.svg' %}" alt="">
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <img src="{% static 'my/img/footer/weibo_icon.svg' %}" alt="">
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="panels-container">
+                    <div class="panel left-panel">
+                        <div class="content">
+                            <h3>加入我们</h3>
+                            <p>
+                                加入我们，成为本站的一份子。
+                            </p>
+                            <button id="sign-up-btn" class="btn transparent">
+                                去注册
+                            </button>
+                        </div>
+                        <img src="{% static 'my/img/login/log.svg' %}" alt="" class="image">
+                    </div>
+                    <div class="panel right-panel">
+                        <div class="content"><h3>已有帐号？</h3>
+                            <p>
+                                立即登录已有帐号，享受精彩内容。
+                            </p>
+                            <button id="sign-in-btn" class="btn transparent">
+                                去登录
+                            </button>
+                        </div>
+                        <img src="{% static 'my/img/login/register.svg' %}" alt="" class="image">
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </main>
+</div>
+
+<script src="{% static 'axios/axios.min.js' %}"></script>
+<script src="{% static 'vue/vue.js' %}"></script>
+<!-- 引入组件库 -->
+<script src="{% static 'elementui/index.js'%}"></script>
+
+<script>
+    // axios的中间件 1，验证是否是post请求，若是就在请求头里面加上csrf_token
+    // 请求中间件
+    axios.interceptors.request.use(
+        request => {
+            //拦截请求，统一添加 csrf
+            if (request.method === 'post') {
+                let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+                request.headers['X-CSRFToken'] = csrf_token
+                {#request.headers['Content-Type'] = 'application/x-www-form-urlencoded'#}
+            }
+            return request
+        },
+    )
+    // 2.返回值的res是一个对象，要获取值必须是res.data,所以在中间件里面把res.data返回出去，则下面的res就能获取到值
+    // 响应中间件
+    axios.interceptors.response.use(
+        response => {
+            return response.data
+        },
+    )
+
+    new Vue({
+        el: "#app",
+        data: {
+            login_form: {
+                name: '',
+                pwd: '',
+                code: '',
+            },
+            sign_form: {
+                name: '',
+                pwd: '',
+                re_pwd: '',
+                code: ''
+            }
+        },
+        methods: {
+            login() {
+                axios.post('/api/login/', this.login_form).then(res => {
+                    if (res.code) {
+                        // 验证失败
+                        this.$message.error(res.msg)
+                        this.$refs[`login_form_${res.self}`].focus()
+                        return
+                    }
+                    this.$message.success(res.msg)
+                    setTimeout(() => {
+                        location.href = '/'
+                    }, 1000)
+                })
+            },
+            sign() {
+                axios.post('/api/sign/', this.sign_form).then(res => {
+                    if (res.code) {
+                        // 验证失败
+                        this.$message.error(res.msg)
+                        this.$refs[`sign_form_${res.self}`].focus()
+                        return
+                    }
+                    this.$message.success(res.msg)
+                    setTimeout(() => {
+                        location.href = '/'
+                    }, 1000)
+                })
+            },
+            get_random_code(e) {
+                let date = new Date().getTime()
+                   e.target.src = '/login/random_code/?timestamp=' + date
+            }
+        }
+    })
+</script>
+
+{#登陆注册动态切换#}
+<script>
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".container");
+
+    sign_up_btn.addEventListener("click", () => {
+        container.classList.add("sign-up-mode");
+    });
+
+    sign_in_btn.addEventListener("click", () => {
+        container.classList.remove("sign-up-mode");
+    });
+</script>
+
+</body>
+</html>
